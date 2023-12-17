@@ -26,10 +26,6 @@ public class RightTriangle {
         int sumOfSquares = (minSide * minSide) + (middleSide * middleSide);
 
         // Check if it is a right triangle
-        if (sumOfSquares == (maxSide * maxSide)) {
-            System.out.println(true);
-        } else {
-            System.out.println(false);
-        }
+        System.out.println(sumOfSquares == (maxSide * maxSide));
     }
 }
