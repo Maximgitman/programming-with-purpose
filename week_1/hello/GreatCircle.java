@@ -24,8 +24,9 @@ public class GreatCircle {
         // Calculate distance
         double deltaLat = lat2 - lat1;
         double deltaLong = long2 - long1;
-        double a = (Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2))
-                + Math.cos(lat1) * Math.cos(lat2) * (Math.sin(deltaLong / 2) * Math.sin(deltaLong / 2));
+        double a = Math.min(1.0, (Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2))
+                + Math.cos(lat1) * Math.cos(lat2) * (Math.sin(deltaLong / 2)
+                * Math.sin(deltaLong / 2)));
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         double distance = earthRadius * c;
 
