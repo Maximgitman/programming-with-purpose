@@ -21,11 +21,15 @@ public class RightTriangle {
         int minSide = Math.min(sideA, Math.min(sideB, sideC));
         int maxSide = Math.max(sideA, Math.max(sideB, sideC));
         int middleSide = (sideA + sideB + sideC) - minSide - maxSide;
-
+        
         // Find sum of squares
         int sumOfSquares = (minSide * minSide) + (middleSide * middleSide);
-
+        
+        // Check for negative values and it is right triange
+        boolean checkPositiveSides = (sideA > 0) && (sideB > 0) && (sideC > 0);
+        boolean isRightTriangle = sumOfSquares == (maxSide * maxSide);
+       
         // Check if it is a right triangle
-        System.out.println(sumOfSquares == (maxSide * maxSide));
+        System.out.println(checkPositiveSides && isRightTriangle);
     }
 }
