@@ -1,7 +1,7 @@
 /* *****************************************************************************
  *  Name:              Ada Lovelace
- *  Coursera User ID:  123456
- *  Last modified:     October 16, 1842
+ *  Specification: Programm that writes Hello, World to the console
+ *  
  **************************************************************************** */
 
 public class HelloWorld {

@@ -1,3 +1,15 @@
+/* *****************************************************************************
+ *  Name: Maksim Gorev
+ *  Specification: The great-circle distance is the length of the shortest path 
+ *                 between two points (x1,y1) and (x2,y2) on the surface of a sphere, 
+ *                 where the path is constrained to be along the surface.
+ *  Write a program GreatCircle.java that takes four double command-line 
+ *  arguments x1, y1, x2, and y2 the latitude and longitude (in degrees) 
+ *  of two points on the surface of the earth—and prints the great-circle 
+ *  distance (in kilometers) between them. Use the following Haversine formula
+ *  where r=6,371.0 is the mean radius of the Earth (in kilometers).
+ **************************************************************************** */
+
 public class GreatCircle {
     public static void main(String[] args) {
         // Const
