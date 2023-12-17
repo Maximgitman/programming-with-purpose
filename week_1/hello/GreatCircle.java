@@ -13,7 +13,7 @@
 public class GreatCircle {
     public static void main(String[] args) {
         // Const
-        double R = 6.371;
+        double earthRadius = 6371.0;
 
         // Read parameters and conver degrees into radians
         double lat1 = Math.toRadians(Double.parseDouble(args[0]));
@@ -27,7 +27,7 @@ public class GreatCircle {
         double a = (Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2))
                 + Math.cos(lat1) * Math.cos(lat2) * (Math.sin(deltaLong / 2) * Math.sin(deltaLong / 2));
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double distance = (R * c) * 1000;
+        double distance = earthRadius * c;
 
         // Print distance between 2 points in km
         System.out.println(distance + " kilometers");
