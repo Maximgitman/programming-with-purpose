@@ -11,7 +11,7 @@ public class RandomWalker {
         
         // Make random steps and calculate Manhatten distance
         System.out.println("(" + x + ", " + y + ")");
-        while (Math.abs(x + y) != r) {
+        while (Math.abs(x) + Math.abs(y) != r) {
             // Get probability from 0.0 - 1.0
             probability = Math.random();
             
