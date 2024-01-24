@@ -18,8 +18,8 @@ public class ThueMorse {
         // Print pattern where ith == jth '+' and ith != jth '-'
         for (int i = 0; i < sequence.length; i++) {
             for (int j = 0; j < sequence.length; j++) {
-                if (sequence[i] == sequence[j]) System.out.print("+ ");
-           else if (sequence[i] != sequence[j]) System.out.print("- ");
+                if (sequence[i] == sequence[j]) System.out.print("+  "); // Two spaces after +
+                else System.out.print("-  "); // Two spaces after -
             }
             System.out.println();
         }
