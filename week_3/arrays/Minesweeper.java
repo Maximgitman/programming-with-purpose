@@ -1,46 +1,50 @@
 public class Minesweeper {
     public static void main(String[] args) {
-        // Read parameters if mines field
+        // Read parameters of mines field
         int m = Integer.parseInt(args[0]);
         int n = Integer.parseInt(args[1]);
         int k = Integer.parseInt(args[2]);
 
         // Random mines positions and init empty mines field
-        int[][] minesLocation = new int[k][2];
-        int[][] minesField = new int[m][n];
+        boolean[][] minesLocation = new boolean[m][n];
+        int[][] minesField = new int[m + 2][n + 2];
 
-        // Assign random coordinates
-        for (int i = 0; i < minesLocation.length; i++) {
-            // Get random coordinates for mines
+        // Assign random coordinates for mines
+        while (k > 0) {
             int x = (int) (Math.random() * m);
             int y = (int) (Math.random() * n);
 
-            // Assign coordinates for the mine
-            // TODO: Check if location is busy
-            minesLocation[i][0] = x;
-            minesLocation[i][1] = y;
-        }
-
-        // Print mines coordinates
-        for (int i = 0; i < minesLocation.length; i++) {
-            for (int j = 0; j < minesLocation[i].length; j++) {
-                System.out.print(minesLocation[i][j] + " ");
+            if (!minesLocation[x][y]) {
+                minesLocation[x][y] = true;
+                k--;
             }
-            System.out.println();
         }
 
-        // Calculate For each cell not containing a mine, count the number of
-        // neighboring mines
-        for (int l = 0; l < minesField.length; l++) {
-            for (int h = 0; h < minesField.length; h++) {
-                for (int xAxis = 0; xAxis < minesLocation.length; xAxis++) {
-                    for (int yAxis = 0; yAxis < minesLocation.length; yAxis++) {
-                        if ((minesField[xAxis][0] == l) && (minesField[yAxis][1] == h)) {
-                            System.out.println("Culculate distance for neighboring mines");
+        // Calculate For each cell not containing a mine, count the number of neighboring mines
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (minesLocation[i][j]) {
+                    for (int a = -1; a <= 1; a++) {
+                        for (int b = -1; b <= 1; b++) {
+                            if (i + a >= 0 && i + a < m && j + b >= 0 && j + b < n) {
+                                minesField[i + a + 1][j + b + 1]++;
+                            }
                         }
                     }
                 }
             }
+        }
+
+        // Print results
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (minesLocation[i - 1][j - 1]) {
+                    System.out.print("*  ");
+                } else {
+                    System.out.print(minesField[i][j] + "  ");
+                }
+            }
+            System.out.println();
         }
     }
 }
